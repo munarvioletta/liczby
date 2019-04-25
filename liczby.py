@@ -11,7 +11,7 @@ def my_function():
   else:
     najmniejsza = lista_elem[2]
 
-  print(('najmniejsza liczba to {}:' ).format(najmniejsza))    
+  print(('najmniejsza liczba to: {}' ).format(najmniejsza))
 
 
 odp = "t"
@@ -19,22 +19,32 @@ while  odp == "t":
   print (' Zadanie sprawdza ktora liczba jest najmniejsza')
   print (' wpisz 3 liczby po kolei')
   lista_elem = []
-  print(lista_elem)
-  
-  for i in range(0,5):   
+  try:
+    n = int(input("Podaj ilosc liczb do porownania: "))
 
-    while len(lista_elem) <= 2:
+    if n == 0:
+      print('brak liczb do porownania')
+    elif n < 3:
       print('nie wystarczająca, wpisz 3 liczby do porownania')
-      try: 
-        x = int(input("Podaj liczbę: "))
-        lista_elem.append(x)
-        
-      except:
-        print('Wpisales znak lub liere, wpisz liczbe!')
-   
-  print(lista_elem)
+    else:
 
-  my_function()   
+      for i in range(n):
+
+        while len(lista_elem) < n:
+
+          try:
+            x = float(input("Podaj liczbę: "))
+            lista_elem.append(x)
+
+          except:
+            print('Wpisales znak lub liere, wpisz liczbe!')
+
+      print(lista_elem)
+
+      my_function()
+
+  except:
+    print('wprowadz liczbe calkowita')
 
   odp = input("Jeszcze raz (t/n)? ")
 
